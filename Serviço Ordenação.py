@@ -118,8 +118,9 @@ print("Para sair, digite fim.")
 while True:
     if catalogo == []:
         print("Não há nenhum livro para ser ordenado.")
-    elif (criterio == 'none' and (ordemtitulo and ordemautor and ordemano) == '0') or config == [] :
+    elif config == [] :
         print("Ordering Exception.")
+        print(tabulate(catalogo))
     escolha = input("Escolha: ")
     if escolha == '1':
         informação()
