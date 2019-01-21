@@ -4,6 +4,7 @@ from operator import*
 
 #Variáveis 
 catalogo = []
+config = []
 
 #Funções
 def livros():
@@ -19,27 +20,89 @@ def livros():
             new["ano"] = livro[3]
             catalogo.append(new)
     return catalogo
-    
- def titulos(): 
-    global catalogo
-    titulos = sorted(catalogo, key=itemgetter('titulo'))
-    print(tabulate(titulos))
-    return titulos
 
-def autor(): 
-    global catalogo
-    autor = sorted(catalogo, key=itemgetter('autor'))
-    print(tabulate(autor))
-    return autor
+def config():
+    global config
+    arquivo = open("config.txt", "r")
+    config = arquivo.read().split("\n")
+    arquivo.close
+    return config
 
-def ano(): 
-    global catalogo
-    ano = sorted(catalogo, key=itemgetter('ano'), reverse=True)
-    print(tabulate(ano))
-    return ano
+def prioridade(cri, orT, orAu, orAn):
+    global catalogo, PriC
+    if cri == 'titulo':
+        if orT == '1':
+            PriC = sorted(catalogo, key=itemgetter('titulo'))
+        elif orT == '2':
+            PriC = sorted(catalogo, key=itemgetter('titulo'), reverse=True)
+    if cri == 'autor':
+        if orAu == '1':
+            PriC = sorted(catalogo, key=itemgetter('autor'))
+        elif orAu == '2':
+            PriC = sorted(catalogo, key=itemgetter('autor'), reverse=True)
+    if cri == 'ano':
+        if orAn == '1':
+            PriC = sorted(catalogo, key=itemgetter('ano'))
+        if orAn == '2':
+            PriC = sorted(catalogo, key=itemgetter('ano'), reverse=True)
+    print(tabulate(PriC))
+    return PriC
+  
+ def ordenação():
+    global Oa, Ob, Na, Nb, PriC
+    if Na and Nb != '0':
+        if Na and Nb == '1':
+            ordemF = sorted(PriC, key=itemgetter(Oa,Ob))
+        elif Na and Nb == '2':
+            ordemF = sorted(PriC, key=itemgetter(Ob,Oa), reverse=True)
+        elif Na == '1' and Nb == '2':
+            ordemI = sorted(PriC, key=itemgetter(Oa))
+            ordemF = sorted(ordemI, key=itemgetter(Ob), reverse=True)
+        elif Na == '2' and Nb == '1':
+            ordemI = sorted(PriC, key=itemgetter(Oa), reverse=True)
+            ordemF = sorted(ordemI, key=itemgetter(Ob))
+    if Na == '0' and Nb != '0':
+        if Nb == '1':
+                ordemF = sorted(PriC, key=itemgetter(Ob))
+        elif Nb == '2':
+                ordemF = sorted(PriC, key=itemgetter(Ob), reverse=True)
+    if Na != '0' and Nb == '0':
+        if Na == '1':
+                ordemF = sorted(PriC, key=itemgetter(Oa))
+        elif Na == '2':
+                ordemF = sorted(PriC, key=itemgetter(Oa), reverse=True)
+    elif Na and Nb == '0':
+        ordemF = PriC
+    print(tabulate(ordemF))
+    return ordemF
     
 livros()
+config()
+
+criterio = config[0]
+ordemtitulo = config[1]
+ordemautor = config[2]
+ordemano = config[3]
+
+if criterio == 'titulo':
+    Oa = 'autor'
+    Ob = 'ano'
+    Na = ordemautor
+    Nb = ordemano
+elif criterio == 'autor':
+    Oa = 'titulo'
+    Ob = 'ano'
+    Na = ordemtitulo
+    Nb = ordemano
+elif criterio == 'ano':
+    Oa = 'titulo'
+    Ob = 'autor'
+    Na = ordemtitulo
+    Nb = ordemautor
+    
 print("Bem-vindo ao sistema de ordenação!")
+prioridade(criterio, ordemtitulo, ordemautor, ordemano)   
+ordenação()
 while True:
     if catalogo == []:
         print("Não há nenhum livro para ser ordenado.")
