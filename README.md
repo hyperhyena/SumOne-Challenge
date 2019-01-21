@@ -15,7 +15,7 @@ O programa deve ser executado pelo Prompt de Comando do seu computador. O própr
                                                    -- BIBLIOTECAS --
 Foram utilizadas duas bibliotecas do Python neste programa:
  
-	operator -> foi utilizado um recurso desta biblioteca chamado "itemgetter". Ele pega um item do dicionário de acordo com sua "key".
+	operator -> recurso "itemgetter". Busca um item do dicionário de acordo com sua "key".
 	tabulate -> cria o output no formato de tabela.
 
 Para instalar ambas, abra o prompt de comando e digite 'pip install operator' e 'pip install tabulate'. Em caso de erro, você deverá instalar ambos manualmente. Busque o arquivo no formato 'wheel', de ambas as bibliotecas. Você pode encontrar um tutorial de como fazer esta instalação manualmente com facilidade no Google.
