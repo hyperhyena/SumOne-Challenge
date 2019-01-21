@@ -24,34 +24,48 @@ O programa deve ser executado pelo Prompt de Comando do seu computador. O própr
 
                                                -- ALTERANDO OS LIVROS --
   Dentro da pasta com o executável existe um arquivo chamado 'catalogo.txt'. Nele, estão os livros a serem organizados. Esta lista pode ser alterada da forma que o usuário desejar, com adição ou remoção de títulos, desde que o formato seja obedecido:
-Número - Título - Autor - Ano da Edição
-Para que o programa contabilize a alteração, ela deve ser feita antes que o programa seja executado.
+  
+  Número - Título - Autor - Ano da Edição.
+  
+  Para que o programa contabilize a alteração, ela deve ser feita antes que o programa seja executado.
 
                                            -- ALTERANDO AS CONFIGURAÇÕES --
-  O usuário possui a opção de alterar as configurações de ordenação da forma como preferir. Dentro da pasta também existe um arquivo chamado 'config.txt'. Nele, estão as configurações que serão lidas pelo programa. Para fazer alterações, basta o usuário escolher a preferência de ordenação, esta configuração irá priorizar uma palavra chave dentre as outras, e a ordem de ordenação do título, autor e ano. Para preferência de ordenação, o usuário deverá escolher entre título, autor e ano. Para ordem de ordenação, deverá escolher entre: 0 - indiferente, 1 - ascendente, 2 - descendente.
+  O usuário possui a opção de alterar as configurações de ordenação da forma como preferir. Dentro da pasta também existe um arquivo chamado 'config.txt'. Nele, estão as configurações que serão lidas pelo programa. Para fazer alterações, basta o usuário escolher a preferência de ordenação, esta configuração irá priorizar uma palavra chave dentre as outras, e a ordem de ordenação do título, autor e ano. Para preferência de ordenação, o usuário deverá escolher entre título, autor e ano. Para ordem de ordenação, deverá escolher entre: 
+  
+  0 - indiferente, 1 - ascendente, 2 - descendente.
   
   O arquivo .txt deverá ser organizado da seguinte forma:
- Preferência de ordenação
- Ordem de ordenação do título
- Ordem de ordenação do autor
- Ordem de ordenação do ano
+  
+    Preferência de ordenação; 
+    Ordem de ordenação do título; 
+    Ordem de ordenação do autor; 
+    Ordem de ordenação do ano.
+    
   Caso o usuário não queira ordenar os livros, basta deixar o arquivo config.txt em branco.
 
                                                   -- RESULTADOS --
   O programa ordenará os livros de acordo com a escolha do usuário. O resultado da ordenação será exibido em forma de tabela.
+  
 EXEMPLO:
+
   Para obter o resultado de ordenação por ano e autor descendente e título ascendente, a configuração do arquivo deve ser feita da seguinte forma:
 
 Preferência de ordenação: título
+
 Ordem de ordenação do título: 1
+
 Ordem de ordenação do autor: 2
+
 Ordem de ordenação do ano: 2
 
-  O resultado será:
+   O resultado será:
 -  -----------------------------------------------  -----------------  ----
 4  Internet & World Wide Web: How to Program        Deitel&Deitel      2007
+
 1  Java How to Program                              Deitel&Deitel      2007
+
 3  Head First Design Patterns                       Elisabeth Freeman  2004
+
 2  Patterns of Enterprise Application Architecture  Martin Fowler      2002
 -  -----------------------------------------------  -----------------  ---- 
 
