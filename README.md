@@ -33,7 +33,7 @@ Para instalar ambas, abra o prompt de comando e digite 'pip install operator' e 
                                            -- ALTERANDO AS CONFIGURAÇÕES --
   O usuário possui a opção de alterar as configurações de ordenação da forma como preferir. Dentro da pasta também existe um arquivo chamado 'config.txt'. Nele, estão as configurações que serão lidas pelo programa. Para fazer alterações, basta o usuário escolher a preferência de ordenação, esta configuração irá priorizar uma palavra chave dentre as outras, e a ordem de ordenação do título, autor e ano. Para preferência de ordenação, o usuário deverá escolher entre título, autor e ano. Para ordem de ordenação, deverá escolher entre: 
   
-  0 - indiferente, 1 - ascendente, 2 - descendente.
+  	0 - indiferente, 1 - ascendente, 2 - descendente.
   
   O arquivo .txt deverá ser organizado da seguinte forma:
   
@@ -47,7 +47,7 @@ Para instalar ambas, abra o prompt de comando e digite 'pip install operator' e 
                                                   -- RESULTADOS --
   O programa ordenará os livros de acordo com a escolha do usuário. O resultado da ordenação será exibido em forma de tabela.
   
-EXEMPLO:
+	EXEMPLO:
 
   Para obter o resultado de ordenação por ano e autor descendente e título ascendente, a configuração do arquivo deve ser feita da seguinte forma:
 
