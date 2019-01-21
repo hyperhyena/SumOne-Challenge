@@ -75,6 +75,15 @@ def prioridade(cri, orT, orAu, orAn):
         ordemF = PriC
     print(tabulate(ordemF))
     return ordemF
+
+def informação():
+    global criterio, ordemtitulo, ordemautor, ordemano
+    print("Os números na ordenação tem o seguinte significado:")
+    print("0 - Indiferente; 1 - Ascendente; 2 - Descendente")
+    print("Critério: ", criterio)
+    print("Ordenação do título: ", ordemtitulo)
+    print("Ordenação do autor: ", ordemautor)
+    print("Ordenação do ano de edição: ", ordemano)
     
 livros()
 config()
@@ -101,32 +110,23 @@ elif criterio == 'ano':
     Nb = ordemautor
     
 print("Bem-vindo ao sistema de ordenação!")
-prioridade(criterio, ordemtitulo, ordemautor, ordemano)   
-ordenação()
+print("Aqui você pode ordenar seus livros por título, autor ou ano, com ou sem critério de desempate")
+print("Para mudar a ordem, você deve alterar o arquivo de configuração.")
+print("Para saber qual ordenação está selecionada, digite 1.")
+print("Para ordenar os livros, digite 2.")
+print("Para sair, digite fim.")
 while True:
     if catalogo == []:
         print("Não há nenhum livro para ser ordenado.")
+    elif (criterio == 'none' and (ordemtitulo and ordemautor and ordemano) == '0') or config == [] :
+        print("Ordering Exception.")
+    escolha = input("Escolha: ")
+    if escolha == '1':
+        informação()
+    elif escolha == '2':
+        prioridade(criterio, ordemtitulo, ordemautor, ordemano)
+        ordenação()
+    elif escolha == "fim":
         break
-    elif catalogo != []:
-        print("Como você deseja ordenar estes livros?")
-        print("1 - Título")
-        print("2 - Autor")
-        print("3 - Ano")
-        print("Caso deseje sair, digite fim.")
-        criterio = input("Número do critério: ")
-        if criterio == "":
-            print("Não foi selecionada nenhuma opção.")
-            print("Ordering Exception")
-        if criterio == "1":
-            print("A ordernação por título é apenas ascendente.")
-            titulos('a')
-        if criterio == "2":
-            print("A ordernação por autores é ascendente.")
-            autor('a')
-        if criterio == "3":
-            print("A ordernação por ano é descendente.")
-            ano()
-        if criterio == "fim":
-            break
-        else:
-            print("Opção inválida, tente novamente.")
+    else:
+        print("Opção inválida, tente novamente.")
