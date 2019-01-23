@@ -49,7 +49,22 @@ def prioridade(cri, orT, orAu, orAn):
     return PriC
   
  def ordenação():
-    global Oa, Ob, Na, Nb, PriC
+    global criterio, PriC
+    if criterio == 'titulo' or 'título':
+        Oa = 'autor'
+        Ob = 'ano'
+        Na = ordemautor
+        Nb = ordemano
+    elif criterio == 'autor':
+        Oa = 'titulo'
+        Ob = 'ano'
+        Na = ordemtitulo
+        Nb = ordemano
+    elif criterio == 'ano':
+        Oa = 'titulo'
+        Ob = 'autor'
+        Na = ordemtitulo
+        Nb = ordemautor
     if Na and Nb != '0':
         if Na and Nb == '1':
             ordemF = sorted(PriC, key=itemgetter(Oa,Ob))
@@ -78,55 +93,41 @@ def prioridade(cri, orT, orAu, orAn):
 
 def informação():
     global criterio, ordemtitulo, ordemautor, ordemano
-    print("Os números na ordenação tem o seguinte significado:")
-    print("0 - Indiferente; 1 - Ascendente; 2 - Descendente")
-    print("Critério: ", criterio)
-    print("Ordenação do título: ", ordemtitulo)
-    print("Ordenação do autor: ", ordemautor)
-    print("Ordenação do ano de edição: ", ordemano)
+    if config == ['']:
+        print("Configuração inexistente\nOrdering Exception")
+    else:
+        print("Os números na ordenação tem o seguinte significado:")
+        print("0 - Indiferente; 1 - Ascendente; 2 - Descendente")
+        print("Critério: ", criterio)
+        print("Ordenação do título: ", ordemtitulo)
+        print("Ordenação do autor: ", ordemautor)
+        print("Ordenação do ano de edição: ", ordemano)
     
 livros()
 config()
-
-criterio = config[0]
-ordemtitulo = config[1]
-ordemautor = config[2]
-ordemano = config[3]
-
-if criterio == 'titulo':
-    Oa = 'autor'
-    Ob = 'ano'
-    Na = ordemautor
-    Nb = ordemano
-elif criterio == 'autor':
-    Oa = 'titulo'
-    Ob = 'ano'
-    Na = ordemtitulo
-    Nb = ordemano
-elif criterio == 'ano':
-    Oa = 'titulo'
-    Ob = 'autor'
-    Na = ordemtitulo
-    Nb = ordemautor
     
 print("Bem-vindo ao sistema de ordenação!")
 print("Aqui você pode ordenar seus livros por título, autor ou ano, com ou sem critério de desempate")
 print("Para mudar a ordem, você deve alterar o arquivo de configuração.")
-print("Para saber qual ordenação está selecionada, digite 1.")
-print("Para ordenar os livros, digite 2.")
+print("Para saber qual ordenação está selecionada, digite 1.\nPara ordenar os livros, digite 2.")
 print("Para sair, digite fim.")
 while True:
-    if catalogo == []:
-        print("Não há nenhum livro para ser ordenado.")
-    elif config == [] :
-        print("Ordering Exception.")
-        print(tabulate(catalogo))
+    if config != ['']:
+        criterio = config[0]
+        ordemtitulo = config[1]
+        ordemautor = config[2]
+        ordemano = config[3]
     escolha = input("Escolha: ")
     if escolha == '1':
         informação()
     elif escolha == '2':
-        prioridade(criterio, ordemtitulo, ordemautor, ordemano)
-        ordenação()
+        if catalogo == ['']:
+            print("Não há nenhum livro para ser ordenado.")
+        elif config == ['']:
+            print("Erro: configuração inexistente.")
+        else:
+            prioridade(criterio, ordemtitulo, ordemautor, ordemano)
+            ordenação()
     elif escolha == "fim":
         break
     else:
