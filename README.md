@@ -6,7 +6,7 @@ Challenge: Serviço de Ordenação
 Linguagem utilizada: Python 3.7 - 64 bits
 
   O Serviço de Ordenação tem o objetivo de organizar os livros em uma biblioteca. Ele possui mais de 50 possibilidades de ordenação, dando ao usuário a chance de escolher sua preferência.
-O programa deve ser executado pelo Prompt de Comando do seu computador. O próprio Prompt exibirá a interface do programa.
+Existem duas maneiras de executar o programa: através de um arquivo .exe, este dispensa qualquer instalação, e o programa em Python. Para executar este, siga as instruções abaixo:
 
                                             -- INSTRUÇÕES PARA EXECUÇÃO --
   Você precisará ter a versão mais atual de Python instalada em seu computador, caso deseje executar/alterar o código fonte. Você pode encontrar Python em https://www.python.org/downloads/. No processo de instalação, não esqueça de adicionar Python ao PATH, essa opção está disponível no próprio instalador. Ou caso deseje, utilize a IDE de sua preferência.
